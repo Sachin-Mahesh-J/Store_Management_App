@@ -11,12 +11,15 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="20">
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Search Users:" FontSize="14" Foreground="Gray"/>
-                <TextBox Name="txtSearch" Width="250" Height="35" FontSize="14" VerticalAlignment="Top" Margin="0,0,0,10" TextChanged="txtSearch_TextChanged"/>
+                <TextBox Name="txtSearch" Width="250" Height="35" FontSize="14" VerticalAlignment="Top" Margin="0,0,0,10" TextChanged="txtSearch_TextChanged" Style="{StaticResource RoundedTextBox}"/>
             </StackPanel>
 
 
-            <DataGrid Name="employeeDataGrid" AutoGenerateColumns="False" Height="350" SelectionMode="Extended" SelectionUnit="FullRow" 
-              IsReadOnly="True" BorderBrush="#DDD" Background="White" RowBackground="#FAFAFA">
+            <DataGrid Name="employeeDataGrid" AutoGenerateColumns="False" Height="350"
+          SelectionMode="Extended" SelectionUnit="FullRow" 
+          IsReadOnly="True" BorderBrush="#DDD" Background="White" 
+          RowBackground="#FAFAFA" Style="{StaticResource StyledDataGrid}">
+
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding UserID}" Width="50"/>
                     <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="200"/>
@@ -28,8 +31,15 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Button Content="✏ Edit" Width="60" Height="30" Background="#FFA500" Foreground="White" Click="EditEmployee_Click" CommandParameter="{Binding UserID}" Margin="0,0,5,0"/>
-                                    <Button Content="🗑 Delete" Width="70" Height="30" Background="#DC3545" Foreground="White" Click="DeleteEmployee_Click" Tag="{Binding UserID}"/>
+                                    <Button Content="✏ Edit" Width="60" Height="30" 
+                                Background="#FFA500" Foreground="White"
+                                Click="EditEmployee_Click" 
+                                CommandParameter="{Binding UserID}" 
+                                Margin="0,0,5,0"/>
+                                    <Button Content="🗑 Delete" Width="70" Height="30" 
+                                Background="#DC3545" Foreground="White"
+                                Click="DeleteEmployee_Click"
+                                CommandParameter="{Binding UserID}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -37,23 +47,24 @@
                 </DataGrid.Columns>
             </DataGrid>
 
+
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                 <StackPanel Orientation="Vertical" Margin="10">
                     <TextBlock Text="Username:" FontSize="14" Foreground="Gray"/>
-                    <TextBox Name="txtUsername" Width="200" Height="35" FontSize="14"/>
+                    <TextBox Name="txtUsername" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
 
                     <TextBlock Text="Password:" FontSize="14" Foreground="Gray" Margin="0,5,0,0"/>
-                    <PasswordBox Name="txtPassword" Width="200" Height="35" FontSize="14"/>
+                    <PasswordBox Name="txtPassword" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedPasswordBox}"/>
 
                     <TextBlock Text="Email:" FontSize="14" Foreground="Gray" Margin="0,5,0,0"/>
-                    <TextBox Name="txtEmail" Width="200" Height="35" FontSize="14"/>
+                    <TextBox Name="txtEmail" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="10">
                     <TextBlock Text="Phone:" FontSize="14" Foreground="Gray"/>
-                    <TextBox Name="txtPhone" Width="200" Height="35" FontSize="14"/>
+                    <TextBox Name="txtPhone" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
 
                     <TextBlock Text="Role:" FontSize="14" Foreground="Gray" Margin="0,5,0,0"/>
-                    <ComboBox Name="cmbRole" Width="200" Height="35" Text="Select a role">
+                    <ComboBox Name="cmbRole" Width="200" Height="35" Text="Select a role" Style="{StaticResource RoundedComboBox}">
                         <ComboBoxItem Content="Admin"/>
                         <ComboBoxItem Content="Cashier"/>
                         <ComboBoxItem Content="Manager"/>

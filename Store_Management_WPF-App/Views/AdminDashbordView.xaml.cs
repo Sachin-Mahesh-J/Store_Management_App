@@ -52,11 +52,13 @@ namespace Store_Management_WPF_App.Views
         {
 
             MainContentControl.Content = new ManageEmployeeView_UC();
+            Page_name.Text = "Manage Employee";
         }
 
         private void btnM_product_Click(object sender, RoutedEventArgs e)
         {
-
+            MainContentControl.Content = new ProductManagementView_UC();
+            Page_name.Text = "Manage Product";
         }
 
         private void btnDashboard_Click(object sender, RoutedEventArgs e)

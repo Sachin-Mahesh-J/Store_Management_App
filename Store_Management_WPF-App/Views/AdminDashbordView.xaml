@@ -33,7 +33,7 @@
         <Border Background="#6A11CB" Height="30" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">
             <DockPanel Background="#5A189A" LastChildFill="True" MouseDown="topbar_darg">
                 <!-- Window Title -->
-                <TextBlock Text="Admin Dashbord" Foreground="White" FontSize="18"
+                <TextBlock x:Name="Page_name" Text="Admin Dashbord" Foreground="White" FontSize="18"
                VerticalAlignment="Center" Margin="20,0,0,0"/>
 
                 <!-- Window Control Buttons -->
