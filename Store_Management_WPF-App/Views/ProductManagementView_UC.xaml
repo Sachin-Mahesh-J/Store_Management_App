@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Store_Management_WPF_App.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="1000" Background="Transparent">
+             d:DesignHeight="800" d:DesignWidth="1200" Background="Transparent" Loaded="UserControl_Loaded">
 
     <Grid Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="20">
@@ -29,15 +29,15 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                     <Button Content="✏ Edit" Width="60" Height="30" Background="#FFA500" Foreground="White" Click="EditProduct_Click" CommandParameter="{Binding ProductID}" Margin="0,0,5,0" Style="{StaticResource RoundedButton}"/>
-                                    <Button Content="🗑 Delete" Width="70" Height="30" Background="#DC3545" Foreground="White" Click="DeleteProduct_Click" Tag="{Binding ProductID}" Style="{StaticResource RoundedButton}"/>
+                                    <Button Content="🗑 Delete" Width="70" Height="30" Background="#DC3545" Foreground="White" Click="DeleteProduct_Click" CommandParameter="{Binding ProductID}" Style="{StaticResource RoundedButton}"/>
+                                    <Button Content="🛒 Buy" Width="60" Height="30" Background="#28a745" Foreground="White" Click="BuyProduct_Click" CommandParameter="{Binding ProductID}" Style="{StaticResource RoundedButton}" Margin="5,0,0,0"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-
-            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Grid.Column="0">
                 <StackPanel Orientation="Vertical" Margin="10">
                     <TextBlock Text="Product Name:" FontSize="14" Foreground="Gray"/>
                     <TextBox Name="txtProductName" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
@@ -52,21 +52,23 @@
                     <TextBlock Text="Selling Price:" FontSize="14" Foreground="Gray"/>
                     <TextBox Name="txtSellingPrice" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
 
-                    <TextBlock Text="Quantity:" FontSize="14" Foreground="Gray" Margin="0,5,0,0"/>
-                    <TextBox Name="txtQuantity" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
-
                     <TextBlock Text="Supplier:" FontSize="14" Foreground="Gray" Margin="0,5,0,0"/>
-                    <ComboBox Name="cmbSupplier" Width="200" Height="35" Style="{StaticResource RoundedComboBox}"/>
+                    <ComboBox Name="cmbSupplier" Width="200" Height="35"/>
                 </StackPanel>
+                <ContentControl x:Name="M"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"/>
             </StackPanel>
-
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                 <Button x:Name="btnAddProduct" Content="➕ Add" Width="100" Height="40" Background="#28A745" Foreground="White"
-                 FontWeight="Bold" Click="btnAddProduct_Click" />
-                <Button Content="✏️ Update Quantity" Width="140" Height="40" Background="#FFC107" Foreground="White"
-                 FontWeight="Bold" Margin="10,0,0,0" Click="btnUpdateQuantity_Click"/>
+                 FontWeight="Bold" Click="btnAddProduct_Click" Style="{StaticResource RoundedButton}"/>
+                <Button Content="✏️ Update Product" Width="140" Height="40" Background="#FFC107" Foreground="White"
+                 FontWeight="Bold" Margin="10,0,0,0" Click="btnUpdateProduct_Click" Style="{StaticResource RoundedButton}"/>
                 <Button Content="🗑 Delete Selected" Width="120" Height="40" Background="#DC3545" Foreground="White" 
-                FontWeight="Bold" Margin="10,0,0,0" Click="btnDeleteSelectedProducts_Click" HorizontalAlignment="Right"/>
+                FontWeight="Bold" Margin="10,0,0,0" Click="btnDeleteSelectedProducts_Click" HorizontalAlignment="Right" Style="{StaticResource RoundedButton}"/>
+                <Button Content="🛒 View Orders" Width="120" Height="40" Background="#8229CC" Foreground="White" 
+FontWeight="Bold" Margin="50,0,0,0" Click="btnViewOrders_click" HorizontalAlignment="Right" Style="{StaticResource RoundedButton}"/>
+                
             </StackPanel>
         </StackPanel>
     </Grid>

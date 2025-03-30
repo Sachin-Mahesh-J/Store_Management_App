@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Store_Management_WPF_App.Views.ManageSuppliersView_UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Store_Management_WPF_App.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800" Loaded="UserControl_Loaded">
+
+    <Grid Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="20">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Search Suppliers:" FontSize="14" Foreground="Gray"/>
+                <TextBox Name="txtSearch" Width="250" Height="35" FontSize="14" VerticalAlignment="Top" Margin="0,0,0,10" Style="{StaticResource RoundedTextBox}" TextChanged="txtSearch_TextChanged"/>
+            </StackPanel>
+
+            <DataGrid Name="suppliersDataGrid" AutoGenerateColumns="False" Height="350" SelectionMode="Extended" SelectionUnit="FullRow" 
+              IsReadOnly="True" BorderBrush="#DDD" Background="White" RowBackground="#FAFAFA" Style="{StaticResource StyledDataGrid}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding SupplierID}" Width="50"/>
+                    <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupplierName}" Width="200"/>
+                    <DataGridTextColumn Header="Contact Person" Binding="{Binding ContactPerson}" Width="150"/>
+                    <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}" Width="150"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="200"/>
+                    <DataGridTextColumn Header="Address" Binding="{Binding Address}" Width="300"/>
+                    <DataGridTemplateColumn Header="Actions" Width="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Content="✏ Edit" Width="60" Height="30" Background="#FFA500" Foreground="White" Click="EditSupplier_Click" CommandParameter="{Binding SupplierID}" Margin="0,0,5,0"/>
+                                    <Button Content="🗑 Delete" Width="70" Height="30" Background="#DC3545" Foreground="White" Click="DeleteSupplier_Click" Tag="{Binding SupplierID}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <TextBlock Text="Supplier Name:" FontSize="14" Foreground="Gray"/>
+                    <TextBox Name="txtSupplierName" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
+
+                    <TextBlock Text="Contact Person:" FontSize="14" Foreground="Gray" Margin="0,5,0,0"/>
+                    <TextBox Name="txtContactPerson" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <TextBlock Text="Phone Number:" FontSize="14" Foreground="Gray"/>
+                    <TextBox Name="txtPhoneNumber" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
+
+                    <TextBlock Text="Email:" FontSize="14" Foreground="Gray" Margin="0,5,0,0"/>
+                    <TextBox Name="txtEmail" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <TextBlock Text="Address:" FontSize="14" Foreground="Gray"/>
+                    <TextBox Name="txtAddress" Width="200" Height="60" FontSize="14" VerticalScrollBarVisibility="Auto" Style="{StaticResource RoundedTextBox}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <Button x:Name="btnAddSupplier" Content="➕ Add" Width="100" Height="40" Background="#28A745" Foreground="White"
+                 FontWeight="Bold" Click="btnAddSupplier_Click" Style="{StaticResource RoundedButton}"/>
+                <Button Content="✏️ Update Details" Width="140" Height="40" Background="#FFC107" Foreground="White"
+                 FontWeight="Bold" Margin="10,0,0,0" Click="btnUpdateSupplier_Click" Style="{StaticResource RoundedButton}"/>
+                <Button Content="🗑 Delete Selected" Width="140" Height="40" Background="#DC3545" Foreground="White" 
+                FontWeight="Bold" Margin="10,0,0,0" Click="btnDeleteSelectedSuppliers_Click" HorizontalAlignment="Right" Style="{StaticResource RoundedButton}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

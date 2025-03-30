@@ -1,0 +1,39 @@
+﻿<Window x:Class="Store_Management_WPF_App.Views.ProductOrderView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Store_Management_WPF_App.Views"
+        mc:Ignorable="d"
+        Title="Order Product" Height="400" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#f4f4f4" Topmost="True" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Border BorderThickness="1" CornerRadius="8" BorderBrush="#DDD">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#3A0CA3" Offset="0.1"/>
+                <GradientStop Color="#6A11CB" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid Margin="10" Background="#FFFFFF">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Order Product" FontSize="20" FontWeight="Bold" Margin="0,0,0,20" Foreground="#333"/>
+
+                <TextBlock Text="Product Name:" FontSize="14" FontWeight="Bold" Foreground="#555"/>
+                <TextBox Name="ProductNameTextBox" IsReadOnly="True" Margin="0,5,0,15" Height="30" Style="{StaticResource RoundedTextBox}"/>
+
+                <TextBlock Text="Supplier Name:" FontSize="14" FontWeight="Bold" Foreground="#555"/>
+                <TextBox Name="SupplierNameTextBox" IsReadOnly="True" Margin="0,5,0,15" Height="30" Style="{StaticResource RoundedTextBox}"/>
+
+                <TextBlock Text="Quantity:" FontSize="14" FontWeight="Bold" Foreground="#555"/>
+                <TextBox Name="QuantityTextBox" Margin="0,5,0,15" Height="30" TextChanged="QuantityTextBox_TextChanged" Style="{StaticResource RoundedTextBox}"/>
+
+                <TextBlock Text="Total Cost:" FontSize="14" FontWeight="Bold" Foreground="#555"/>
+                <TextBox Name="TotalCostTextBox" IsReadOnly="True" Margin="0,5,0,15" Height="30" Style="{StaticResource RoundedTextBox}"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,5">
+                    <Button Content="✔ Confirm Purchase" Click="ConfirmPurchase_Click" Background="#28a745" Foreground="White" Width="150" Height="35" FontWeight="Bold" Margin="0,0,10,0" Style="{StaticResource RoundedButton}"/>
+                    <Button Content="✖ Cancel" Width="100" Height="35" Background="#DC3545" Foreground="White" FontWeight="Bold" Click="CancelButton_Click" Style="{StaticResource RoundedButton}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

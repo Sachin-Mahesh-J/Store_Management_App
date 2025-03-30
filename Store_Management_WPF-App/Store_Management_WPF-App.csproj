@@ -114,6 +114,8 @@
     <Compile Include="Services\DbConnect.cs" />
     <Compile Include="Services\Employee.cs" />
     <Compile Include="Services\Login.cs" />
+    <Compile Include="Services\Product.cs" />
+    <Compile Include="Services\Suppliers.cs" />
     <Compile Include="Views\AdminDashbordView.xaml.cs">
       <DependentUpon>AdminDashbordView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -121,6 +123,9 @@
     <Compile Include="Views\CashierDashbordView.xaml.cs">
       <DependentUpon>CashierDashbordView.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\DashbordView.xaml.cs">
+      <DependentUpon>DashbordView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -133,8 +138,17 @@
       <DependentUpon>ManagerDashbordView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\ManageSuppliersView_UC.xaml.cs">
+      <DependentUpon>ManageSuppliersView_UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderView_UC.xaml.cs">
+      <DependentUpon>OrderView_UC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductManagementView_UC.xaml.cs">
       <DependentUpon>ProductManagementView_UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductOrderView.xaml.cs">
+      <DependentUpon>ProductOrderView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -160,6 +174,10 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
+    <Page Include="Views\DashbordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
@@ -172,7 +190,19 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
+    <Page Include="Views\ManageSuppliersView_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrderView_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProductManagementView_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductOrderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

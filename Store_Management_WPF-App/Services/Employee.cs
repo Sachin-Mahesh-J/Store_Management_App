@@ -58,11 +58,11 @@ namespace Store_Management_WPF_App.Services
             TextBox txtEmail = window.FindName("txtEmail") as TextBox;
             TextBox txtPhone = window.FindName("txtPhone") as TextBox;
             ComboBox cmbRole = window.FindName("cmbRole") as ComboBox;
-            txtUsername.Text = "";
-            txtPassword.Password = "";
-            txtEmail.Text = "";
-            txtPhone.Text = "";
-            cmbRole.SelectedIndex = -1;
+            txtUsername.Clear();
+            txtPassword.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            cmbRole.Items.Clear();
         }
 
         public bool AddEmployee(UserControl window)
@@ -122,6 +122,7 @@ namespace Store_Management_WPF_App.Services
             {
                 MessageBox.Show(GetParentWindow(window), "Password is required for new employees.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
+                
             }
 
             // If it's an UPDATE operation, validate password only if entered
@@ -144,7 +145,7 @@ namespace Store_Management_WPF_App.Services
             {
                 if (conn != null)
                 {
-                    DataTable dt = DbConnect.GetEmployees(conn);
+                    DataTable dt = DbConnect.LoadEmployees(conn);
                     dataGrid.ItemsSource = dt.DefaultView;
                 }
                 else
@@ -159,7 +160,7 @@ namespace Store_Management_WPF_App.Services
             return DbConnect.GetEmployeeById(userId);
         }
 
-        public bool UpdateEmployee(UserControl window)
+        public bool UpdateEmployee()
         {
             return DbConnect.UpdateEmployee(UserID,Username,Email,PhoneNumber,Role,PasswordHash);
         }
@@ -198,6 +199,21 @@ namespace Store_Management_WPF_App.Services
             }
         }
 
+        public void SearchEmployees(DataGrid dataGrid, string searchQuery)
+        {
+            using (MySqlConnection conn = DbConnect.GetConnection())
+            {
+                if (conn != null)
+                {
+                    DataTable dt = DbConnect.LoadEmployees(conn, searchQuery);
+                    dataGrid.ItemsSource = dt.DefaultView;
+                }
+                else
+                {
+                    MessageBox.Show("Error connecting to database.", "Database Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
 
     }
 }

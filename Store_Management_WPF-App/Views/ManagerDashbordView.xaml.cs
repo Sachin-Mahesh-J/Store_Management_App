@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Store_Management_WPF_App.Services;
 
 namespace Store_Management_WPF_App.Views
 {
@@ -22,6 +23,51 @@ namespace Store_Management_WPF_App.Views
         public ManagerDashbordView()
         {
             InitializeComponent();
+        }
+
+        private void Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            CommonButtons.minimizebutton(this);
+        }
+
+        private void Maximize_Click(object sender, RoutedEventArgs e)
+        {
+            CommonButtons.maximizebutton(this, MaximizeButton);
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            CommonButtons.closebutton(this);
+        }
+
+        private void topbar_darg(object sender, MouseButtonEventArgs e)
+        {
+            CommonButtons.dragmove(this, e);
+        }
+
+        private void btnM_product_Click(object sender, RoutedEventArgs e)
+        {
+            MainContentControl.Content = new ProductManagementView_UC();
+            Page_name.Text = "Manage Product";
+        }
+
+        private void btnDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            MainContentControl.Content = new DashbordView();
+            Page_name.Text = "Dashboard";
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Close();
+        }
+
+        private void btnM_supplier_Click(object sender, RoutedEventArgs e)
+        {
+            MainContentControl.Content = new ManageSuppliersView_UC();
+            Page_name.Text = "Manage Supplier";
         }
     }
 }

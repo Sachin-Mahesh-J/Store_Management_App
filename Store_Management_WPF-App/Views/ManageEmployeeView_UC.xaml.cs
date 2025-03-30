@@ -33,9 +33,14 @@ namespace Store_Management_WPF_App.Views
             employee.LoadEmployees(employeeDataGrid);
         }
 
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            employee.clearFields(this);
+        }
+
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            employee.SearchEmployees(employeeDataGrid, txtSearch.Text);
         }
 
         private void EditEmployee_Click(object sender, RoutedEventArgs e)
@@ -129,7 +134,7 @@ namespace Store_Management_WPF_App.Views
 
             if (employee.VerifyEnteredData(this, cmbRole, true, password))
             {
-                if (employee.UpdateEmployee(this))
+                if (employee.UpdateEmployee())
                 {
                     employee.LoadEmployees(employeeDataGrid);
                     employee.clearFields(this);

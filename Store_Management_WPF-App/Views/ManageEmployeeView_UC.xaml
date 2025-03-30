@@ -64,7 +64,7 @@
                     <TextBox Name="txtPhone" Width="200" Height="35" FontSize="14" Style="{StaticResource RoundedTextBox}"/>
 
                     <TextBlock Text="Role:" FontSize="14" Foreground="Gray" Margin="0,5,0,0"/>
-                    <ComboBox Name="cmbRole" Width="200" Height="35" Text="Select a role" Style="{StaticResource RoundedComboBox}">
+                    <ComboBox Name="cmbRole" Width="200" Height="35" Text="Select a role">
                         <ComboBoxItem Content="Admin"/>
                         <ComboBoxItem Content="Cashier"/>
                         <ComboBoxItem Content="Manager"/>
@@ -80,6 +80,8 @@
                  FontWeight="Bold" Margin="10,0,0,0" Click="btnUpdateEmployee_Click"/>
                 <Button Content="🗑 Delete Selected" Width="120" Height="40" Background="#DC3545" Foreground="White" 
                 FontWeight="Bold" Margin="10,0,0,0" Click="btnDeleteSelectedEmployees_Click" HorizontalAlignment="Right"/>
+                <Button Content="❌ Clear Fields" Width="100" Height="40" Background="#6C757D" Foreground="White"
+        FontWeight="Bold" Margin="10,0,0,0" Click="btnClear_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

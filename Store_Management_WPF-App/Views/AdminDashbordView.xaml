@@ -61,6 +61,7 @@
             <Button x:Name="btnDashboard" Content="Dashboard" Style="{StaticResource SidebarButton}" Click="btnDashboard_Click"/>
             <Button x:Name="btnM_employee" Content="Manage Employees" Style="{StaticResource SidebarButton}" Click="btnM_employee_Click"/>
             <Button x:Name="btnM_product" Content="Manage Product" Style="{StaticResource SidebarButton}" Click="btnM_product_Click"/>
+            <Button x:Name="btnM_supplier" Content="Manage Suppliers" Style="{StaticResource SidebarButton}" Click="btnM_supplier_Click"/>
             <Button x:Name="btnLogout" Content="Logout" Style="{StaticResource SidebarButton}" Click="btnLogout_Click"/>
         </StackPanel>
         

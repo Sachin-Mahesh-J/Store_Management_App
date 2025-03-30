@@ -63,12 +63,21 @@ namespace Store_Management_WPF_App.Views
 
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
         {
-
+            MainContentControl.Content = new DashbordView();
+            Page_name.Text = "Dashboard";
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Close();
+        }
 
+        private void btnM_supplier_Click(object sender, RoutedEventArgs e)
+        {
+            MainContentControl.Content = new ManageSuppliersView_UC();
+            Page_name.Text = "Manage Supplier";
         }
     }
 }
