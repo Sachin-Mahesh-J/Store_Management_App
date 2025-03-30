@@ -1,0 +1,50 @@
+
+CREATE DATABASE st;
+USE RetailManagementDB;
+CREATE TABLE Employees (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(50) UNIQUE NOT NULL,
+    PasswordHash VARCHAR(255) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    PhoneNumber VARCHAR(20) UNIQUE NOT NULL,
+    Role ENUM('Admin', 'Cashier', 'Manager') NOT NULL
+);
+
+
+CREATE TABLE Products (
+    ProductID INT AUTO_INCREMENT PRIMARY KEY,
+    ProductName VARCHAR(255) NOT NULL,
+    Category VARCHAR(100),
+    CostPrice DECIMAL(10,2) NOT NULL,
+    SellingPrice DECIMAL(10,2) NOT NULL,
+    Quantity INT NOT NULL,
+    SupplierID INT,
+    DateAdded TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID) ON DELETE SET NULL
+);
+CREATE TABLE Suppliers (
+    SupplierID INT AUTO_INCREMENT PRIMARY KEY,
+    SupplierName VARCHAR(255) NOT NULL,
+    ContactPerson VARCHAR(255),
+    PhoneNumber VARCHAR(15),
+    Email VARCHAR(255),
+    Address TEXT
+);
+CREATE TABLE PurchaseOrders (
+    PurchaseID INT AUTO_INCREMENT PRIMARY KEY,
+    SupplierID INT,
+    OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    TotalAmount DECIMAL(10,2),
+    Status ENUM('Pending', 'Completed') DEFAULT 'Pending',
+    FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID) ON DELETE SET NULL
+);
+
+CREATE TABLE PurchaseDetails (
+    PurchaseDetailID INT AUTO_INCREMENT PRIMARY KEY,
+    PurchaseID INT,
+    ProductID INT,
+    Quantity INT NOT NULL,
+    UnitCost DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (PurchaseID) REFERENCES PurchaseOrders(PurchaseID) ON DELETE CASCADE,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE CASCADE
+);
