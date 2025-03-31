@@ -23,5 +23,15 @@ namespace Store_Management_WPF_App.Views
         {
             InitializeComponent();
         }
+
+        private void txtSearchOrders_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void UpdateOrderStatus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

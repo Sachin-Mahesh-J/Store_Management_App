@@ -141,8 +141,8 @@
     <Compile Include="Views\ManageSuppliersView_UC.xaml.cs">
       <DependentUpon>ManageSuppliersView_UC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OrderView_UC.xaml.cs">
-      <DependentUpon>OrderView_UC.xaml</DependentUpon>
+    <Compile Include="Views\OderView.xaml.cs">
+      <DependentUpon>OderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductManagementView_UC.xaml.cs">
       <DependentUpon>ProductManagementView_UC.xaml</DependentUpon>
@@ -194,7 +194,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\OrderView_UC.xaml">
+    <Page Include="Views\OderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
