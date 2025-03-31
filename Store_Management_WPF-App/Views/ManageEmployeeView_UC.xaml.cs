@@ -148,37 +148,33 @@ namespace Store_Management_WPF_App.Views
 
         private void DeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
-            if (btn == null || btn.Tag == null)
+            if (sender is Button btn && btn.CommandParameter is int userId)
+            {
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this employee?",
+                                                          "Confirm Deletion",
+                                                          MessageBoxButton.YesNo,
+                                                          MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    Employee employee = new Employee { UserID = userId };
+
+                    if (employee.DeleteEmployee(this))
+                    {
+                        employee.LoadEmployees(employeeDataGrid); // Refresh the DataGrid
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete employee.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else
             {
                 MessageBox.Show("Error: Invalid selection!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            int userId;
-            if (!int.TryParse(btn.Tag.ToString(), out userId))
-            {
-                MessageBox.Show("Error: Invalid UserID!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this employee?",
-                                                      "Confirm Deletion",
-                                                      MessageBoxButton.YesNo,
-                                                      MessageBoxImage.Warning);
-
-            if (result == MessageBoxResult.No)
-            {
-                return;
-            }
-
-            Employee employee = new Employee { UserID = userId };
-
-            if (employee.DeleteEmployee(this))
-            {
-                employee.LoadEmployees(employeeDataGrid);
             }
         }
+
 
         private void btnDeleteSelectedEmployees_Click(object sender, RoutedEventArgs e)
         {
